@@ -1,0 +1,139 @@
+@charset "UTF-8";
+@import "./utils/_utils.scss";
+
+// * ==========================================================================
+// * HEADER 區塊
+// * ==========================================================================
+
+header {
+	width: 44px;
+  height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	background-color: $color-black;
+  box-shadow: 5px 0px 15px rgba(0, 0, 0, 0.05);
+	transition: 0.2s;
+
+	@include min-width(1024px) {
+		width: 60px;
+	}
+}
+
+.mainheader{
+	width: 100%;
+	height: calc(100% - 20%);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+
+.home-icon {
+  width: 24px;
+  height: 24px;
+  margin: 0 auto;
+  display: block;
+  background: url("../images/icon/menu/home.svg") no-repeat center/cover;
+  transition: 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  cursor: pointer;
+  @include hidetext;
+
+  //首頁當前頁面狀態
+  &.current {
+    background: url("../images/icon/menu/home.svg") no-repeat center/cover;
+
+    @include min-width(1024px) {
+      &:hover {
+        background: url("../images/icon/menu/home.svg") no-repeat center/cover;
+      }
+    }
+  }
+
+  @include min-width(1024px) {
+    &:hover {
+      background: url("../images/icon/menu/home.svg") no-repeat center/cover;
+    }
+  }
+}
+
+.mainheader-menu {
+  margin-top: 20px;
+
+  @include min-width(376px) {
+    margin-top: 64px;
+  }
+
+  > li {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    writing-mode: vertical-rl;
+
+    @include min-width(376px) {
+      margin-bottom: 40px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+
+      &:after {
+        display: none;
+      }
+    }
+
+    //其他分頁當前頁面狀態
+    &.current {
+      &:before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        position: absolute;
+        top: -6px;
+        right: -6px;
+        background-color: $color-primary-4;
+      }
+    }
+
+    @include min-width(1024px) {
+      &:hover {
+        > a {
+          color: $color-white;
+          opacity: 0.5;
+        }
+      }
+    }
+
+    &:after {
+      content: "";
+      width: 8px;
+      height: 8px;
+      position: absolute;
+      bottom: -15px;
+      display: block;
+      background: url("../images/icon/menu/pic_star_2x.png") no-repeat center/cover;
+
+      @include min-width(376px) {
+        bottom: -25px;
+      }
+    }
+
+    > a {
+      width: 100%;
+      height: 100%;
+      display: block;
+      letter-spacing: 5px;
+      color: $color-white;
+      font-size: 15px;
+      transition: 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+  }
+}

@@ -1,0 +1,179 @@
+@charset "UTF-8";
+@import "./utils/_utils.scss";
+
+// * ==========================================================================
+// * Button 按鈕
+// * ==========================================================================
+
+.pupup-btn {
+  display: inline-block;
+  text-align: center;
+	padding: 1rem 2rem;
+	margin-top: 2rem;
+	border-radius: 10px;
+  background-color: $color-primary-2;
+  color: #fff;
+  cursor: pointer;
+}
+
+//分享按鈕
+
+.social-media-btn {
+  width: 35px;
+  height: 35px;
+  display: block;
+  margin: 0 auto;
+}
+
+.icon-youtube {
+  background: url("../images/icon/menu/yuutube_normal.svg") no-repeat
+    center/cover;
+  transition: 0.1s;
+  @include hidetext;
+}
+
+.icon-share {
+  position: relative;
+  background: url("../images/icon/menu/share_normal.svg") no-repeat center/cover;
+  @include hidetext;
+}
+
+.icon-facebook {
+  position: relative;
+  transition: 0.1s;
+  @include hidetext;
+}
+
+.icon-line {
+  transition: 0.1s;
+  @include hidetext;
+}
+
+.topnav-item {
+  margin-top: 1rem;
+
+  @include min-height(830px) {
+    margin-top: 5rem;
+  }
+}
+
+.hover-text {
+  display: none;
+
+  @include min-width(1024px) {
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 5px;
+    z-index: 1;
+    opacity: 0;
+    line-height: 24px;
+    font-weight: 700;
+    font-size: 14px;
+    color: $color-white;
+    background-color: $color-primary-4;
+    transform: translateX(-35px);
+    transition: 0.2s;
+
+    &.hover-text-yt {
+      width: 66px;
+      height: 24px;
+    }
+
+    &.hover-text-gift {
+      width: 40px;
+      height: 24px;
+    }
+  }
+}
+
+//youtube icon
+.youtube {
+  position: relative;
+  z-index: 5;
+  transition: 0.1s;
+
+  @include min-width(1024px) {
+    &:hover {
+      .hover-text {
+        opacity: 1;
+        transform: translateX(70px);
+      }
+    }
+  }
+
+  @include min-width(1280px) {
+    &:hover {
+      .hover-text {
+        opacity: 1;
+        transform: translateX(55px);
+      }
+    }
+  }
+}
+
+//share icon
+.share {
+  position: relative;
+  z-index: 10;
+  cursor: pointer;
+
+  .share-list {
+    display: none;
+  }
+
+  &:hover {
+    @include min-width(1024px) {
+      .icon-share {
+        width: 133px;
+        position: absolute;
+        left: 11px;
+        background: url("../images/icon/menu/share_hover.svg") no-repeat
+          center/cover;
+      }
+
+      .share-list {
+        display: flex;
+        position: absolute;
+
+        > li {
+          position: absolute;
+
+          &:nth-child(1) {
+            left: 78px;
+          }
+          &:nth-child(2) {
+            left: 43px;
+          }
+        }
+      }
+    }
+
+    @include min-width(1280px) {
+      .share-list {
+        > li {
+          &:nth-child(1) {
+            left: -72px;
+          }
+          &:nth-child(2) {
+            left: -36px;
+          }
+        }
+      }
+    }
+    @include min-width(1440px) {
+      .share-list {
+        > li {
+          &:nth-child(1) {
+            left: 59px;
+          }
+          &:nth-child(2) {
+            left: 23px;
+          }
+        }
+      }
+    }
+  }
+}
