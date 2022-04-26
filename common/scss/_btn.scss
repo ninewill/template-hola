@@ -128,7 +128,6 @@
     @include min-width(1024px) {
       .icon-share {
         width: 133px;
-        position: absolute;
         left: 11px;
         background: url("../images/icon/menu/share_hover.svg") no-repeat
           center/cover;
@@ -137,6 +136,9 @@
       .share-list {
         display: flex;
         position: absolute;
+				position: absolute;
+				top: 0;
+				right: 25px;
 
         > li {
           position: absolute;
